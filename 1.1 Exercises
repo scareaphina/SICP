@@ -71,3 +71,7 @@
                  x)))
 (define (cube-root x)
   (cubrt-iter 1.0 0.0 x))
+
+(cube-root 27)
+(cube-root 382)
+(cube-root .73)
