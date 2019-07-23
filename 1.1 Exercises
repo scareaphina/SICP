@@ -47,5 +47,27 @@
 
 (square-largest .75 8 2)
 
-;1.7
+;1.8
 
+;1.8
+
+(define (square x)
+  (* x x))
+
+(define (cube x)
+  (* (square x) x))
+
+(define (good-enough? guess prior-guess)
+  (< (abs (- (square guess) (square prior-guess))) 0.001))
+
+(define (improve-cube guess x)
+  (/ (+ (* 2 guess) (/ x (square guess))) 3))
+
+(define (cubrt-iter guess prior-guess x)
+  (if (good-enough? guess prior-guess)
+      guess
+      (cubrt-iter (improve-cube guess x)
+                  guess
+                 x)))
+(define (cube-root x)
+  (cubrt-iter 1.0 0.0 x))
