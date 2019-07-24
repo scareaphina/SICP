@@ -42,7 +42,7 @@
 (define (sum-of-squares x y)
   (+ (square x) (square y)))
 
-(define (square-largest a b c)
+(define (sumsqlgst a b c)
   (cond
     ((and (>= a c) (>= b c)) (sum-of-squares a b))
     ((and (>= b a) (>= c a)) (sum-of-squares b c))
@@ -53,8 +53,6 @@
 (square-largest 17 82 5)
 
 (square-largest .75 8 2)
-
-;1.8
 
 ;1.8
 
