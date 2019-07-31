@@ -100,6 +100,9 @@
       1
       (* b (expt b (- n 1)))))
 
+; define function expt
+; if n = 0, return 1, otherwise execute function and return results
+
 (define (expt b n)
   (expt-iter b n 1))
 
