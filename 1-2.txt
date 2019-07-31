@@ -1,5 +1,7 @@
 ;1.2
 
+;;;;;;;;;;;;;;;;;;;;;;;
+
 ;1.2.1
 
 (define (factorial n)
@@ -30,16 +32,28 @@
         ((= n 1) 1)
         (else (+ (fib (- n 1))
                  (fib (- n 2))))))
-                 
+
+;;;;;;;;;;;;;;;;;;;;;;;
+
 ;1.2.2
 
 (define (fib n)
   (fib-iter 1 0 n))
 
+; define the function of fib which takes one argument
+; call fib-iter which takes three arguments
+
 (define (fib-iter a b count)
   (if (= count 0)
       b
-      (fib-iter (+a b) a (- count 1))))
+      (fib-iter (+ a b) a (- count 1))))
+
+; define fib-iter which takes two arguments and counts
+; if the count is equal to zero
+; run the second argument
+; fib iter with the arguments of (adding a & b), then a, then subtracting one from the count
+
+;;;;;;;;;;;;;;;;;;;;;;;
 
 (define (count-change amount)
   (cc amount 5))
@@ -59,6 +73,8 @@
         ((= kinds-of-coins 5) 50)))
 
 (count-change 100)
+
+;;;;;;;;;;;;;;;;;;;;;;;
 
 ;1.2.4
 
