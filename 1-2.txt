@@ -57,14 +57,26 @@
 
 (define (count-change amount)
   (cc amount 5))
+
+; define the function count-change with the argument of whatever the amount is that you want to count
+; call the function of cc with the argument of amount and another variable (in this case 5
+
 (define (cc amount kinds-of-coins)
   (cond ((= amount 0) 1)
         ((or (< amount 0) (= kinds-of-coins 0)) 0)
         (else (+ (cc amount
-                 (- kinds-of-coins 1))
-              (cc (- amount
-                     (first-denomination kinds-of-coins))
-                  kinds-of-coins)))))
+                     (- kinds-of-coins 1))
+                 (cc (- amount
+                        (first-denomination kinds-of-coins))
+                     kinds-of-coins)))))
+
+; define cc with the two arguments of amount and kinds-of-coins
+; if the amount equals zero, return one
+; or the amount is greater than zero and koc is zero, 0
+; if neither of those are true, add cc and the amount
+; subtract one from kinds of coins
+; call cc and subtract from the amount the function first-denom and koc from koc
+
 (define (first-denomination kinds-of-coins)
   (cond ((= kinds-of-coins 1) 1)
         ((= kinds-of-coins 2) 5)
@@ -72,7 +84,13 @@
         ((= kinds-of-coins 4) 25)
         ((= kinds-of-coins 5) 50)))
 
+; define first denom koc
+; first value is 1, and has a value of one
+; second is 2, has a value of 5
+; and so on
+
 (count-change 100)
+; returns 292
 
 ;;;;;;;;;;;;;;;;;;;;;;;
 
