@@ -1,3 +1,7 @@
+;;;;;;;;;;;;;;;;;;;;;;;
+; NOTE to future phina: In Racket, the last function is always what gets returned. Keep that in minnnnnnd.
+;;;;;;;;;;;;;;;;;;;;;;;
+
 ;1.2
 
 ;;;;;;;;;;;;;;;;;;;;;;;
