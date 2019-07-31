@@ -7,6 +7,8 @@
       1
       (* n (factorial (- n 1)))))
 
+; define the factorial function with a variable of n - if n is equal to one, multiply n by procedure of factorial n
+
 (define (factorial n)
   (fact-iter 1 1 n))
 
