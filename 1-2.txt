@@ -9,7 +9,7 @@
       1
       (* n (factorial (- n 1)))))
 
-; define the factorial function with a variable of n - if n is equal to one, multiply n by procedure of factorial n
+; define the factorial function with a variable of n - if n is equal to one, return one, otherwise multiply n by procedure of factorial n
 
 (define (factorial n)
   (fact-iter 1 1 n))
@@ -24,8 +24,8 @@
                  max-count)))
 
 ; define fact-iter with variable of product, counter, and max-count
-; if counter is greater than max-count, run product
-; fact-iter runs with a first factor of the product of counter and product, then the sum of counter and 1, followed by max-count
+; if counter is greater than max-count, return product
+; otherwise, run fact-iter with a first factor of the product of counter and product, then the sum of counter and 1, followed by max-count
 
 (define (fib n)
   (cond ((= n 0) 0)
@@ -41,7 +41,7 @@
   (fib-iter 1 0 n))
 
 ; define the function of fib which takes one argument
-; call fib-iter which takes three arguments
+; return fib-iter which takes three arguments
 
 (define (fib-iter a b count)
   (if (= count 0)
@@ -49,9 +49,8 @@
       (fib-iter (+ a b) a (- count 1))))
 
 ; define fib-iter which takes two arguments and counts
-; if the count is equal to zero
-; run the second argument
-; fib iter with the arguments of (adding a & b), then a, then subtracting one from the count
+; if the count is equal to zero, return b
+; if not, run fib iter with the arguments of (adding a & b), then a, then subtracting one from the count
 
 ;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -59,7 +58,7 @@
   (cc amount 5))
 
 ; define the function count-change with the argument of whatever the amount is that you want to count
-; call the function of cc with the argument of amount and another variable (in this case 5
+; return the function of cc with the argument of amount and another variable (in this case 5
 
 (define (cc amount kinds-of-coins)
   (cond ((= amount 0) 1)
