@@ -160,3 +160,16 @@ circumference
 (sqrt (+ (sqrt 2) (sqrt 3)))
 
 (square (sqrt 1000))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+1.1.8
+
+(define (square x) (* x x))
+
+(define (square x)
+  (exp (double (log x))))
+
+(define (double x) (+ x x))
+
+; these processes all do the same thing but with different details. and example of how procedure definition supresses detail. they are black box procedures that can be called to do the same functions
