@@ -76,11 +76,18 @@
         (iter b c (+ c (* 2 b) (* 3 a)) (- count 1))))
   (iter 0 1 2 n))
 
+; define f with one argument
+; define iter with three arguments and a count
+; if the count is zero, return a
+; run iter on b and c and then lower the count by 1
+
 (f 0)
 (f 7)
 (f 22)
 (f 364)
 (f 2)
+
+;;;;;;;;;;;;;;;;;
 
 ;1.12
 
