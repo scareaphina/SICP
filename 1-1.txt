@@ -173,3 +173,44 @@ circumference
 (define (double x) (+ x x))
 
 ; these processes all do the same thing but with different details. and example of how procedure definition supresses detail. they are black box procedures that can be called to do the same functions
+
+; ****** if the parameters were not local to the bodies of their respective procedures, then the parameter x in square could be confused with the parameter x in good-enough?, and the behavior of good-enough? would depend upon which version of square we used. Thus, square would not be the black box we desired. *********
+
+(define (sqrt x)
+  (sqrt-iter 1.0 x))
+(define (sqrt-iter guess x)
+  (if (good-enough? guess x)
+      guess
+      (sqrt-iter (improve guess x) x)))
+(define (good-enough? guess x)
+  (< (abs (- (square guess) x)) 0.001))
+(define (improve guess x)
+  (average guess (/ x guess)))
+
+; if you have a larger system, this becomes a problem because functions like good-enough or improve might be needed elsewhere
+
+(define (sqrt x)
+  (define (good-enough? guess x)
+    (< (abs (- (square guess) x)) 0.001))
+  (define (improve guess x)
+    (average guess (/ x guess)))
+  (define (sqrt-iter guess x)
+    (if (good-enough? guess x)
+        guess
+        (sqrt-iter (improve guess x) x)))
+  (sqrt-iter 1.0 x))
+
+; block structure - but we can not only internalize the definitions of auxiliary procedures, we can simplify them
+; since x is bound in the definition of sqrt, good-enough?, improve, and sqrt-iter, are in the scope of x
+; so we do not need to pass x ecplicitly to each procedure, we can just let x be a free variable in the internal definitions
+
+(define (sqrt x)
+  (define (good-enough? guess)
+    (< (abs (- (square guess) x)) 0.001))
+  (define (improve guess)
+    (average guess (/ x guess)))
+  (define (sqrt-iter guess)
+    (if (good-enough? guess)
+        guess
+        (sqrt-iter (improve guess))))
+  (sqrt-iter 1.0))
