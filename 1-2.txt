@@ -122,6 +122,8 @@
 ; if the counter is 0, return product
 ; otherwise, run expt-iter of variable b, subtract one from the counter, then multiply b by the product
 
+;;;;;;;;;;;;;;;;;;;;;;;
+
 (* b (* b (* b (* b (* b ( * b (* b b)))))))
 
 (define (fast-expt b n)
@@ -129,5 +131,13 @@
         ((even? n) (square (fast-expt b (/ n 2))))
         (else (* b (fast-expt b (- n 1))))))
 
+; define fast-expt with 2 variables
+; if n = 0, return 1
+; otherwise, if n is even, square the result of fast-expt b times n divided by 2
+; otherwise, multiply b by the results of fast-expt b times n - 1
+
 (define (even? n)
   (= (remainder n 2) 0))
+  
+;;;;;;;;;;;;;;;;;;;;;;;
+
