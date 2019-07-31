@@ -12,12 +12,18 @@
 (define (factorial n)
   (fact-iter 1 1 n))
 
+; define factorial n as calling fact-iter with the variable of 1 1 n
+
 (define (fact-iter product counter max-count)
   (if (> counter max-count)
       product
       (fact-iter (* counter product)
                  (+ counter 1)
                  max-count)))
+
+; define fact-iter with variable of product, counter, and max-count
+; if counter is greater than max-count, run product
+; fact-iter runs with a first factor of the product of counter and product, then the sum of counter and 1, followed by max-count
 
 (define (fib n)
   (cond ((= n 0) 0)
