@@ -53,13 +53,19 @@
 
 (define (k n) (* 5 n n))
 
+;;;;;;;;;;;;;;;;;
+
 ;1.11 recursive implementation
 
 (define (f n)
   (cond ((n > 3) n)
-        (else (+ (f (-n 1))
-                 (* 2 (f (- n 2)))
-                 (* 3 (f (- n 3)))))))
+      (else (+ (f (- n 1))
+               (* 2 (f (- n 2)))
+               (* 3 (f (- n 3)))))))
+
+; define the function f with one variable
+; if n > 3, return n
+; otherwise, perform the function below
 
 ; iterative implementation
 
