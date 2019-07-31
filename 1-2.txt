@@ -52,6 +52,10 @@
         (else (+ (fib (- n 1))
                  (fib (- n 2))))))
 
+; define the function of fib with variable n
+; if n is zero, return zero. if one return one.
+; else add fib (n - 1) to fib (n - 2)
+
 ;;;;;;;;;;;;;;;;;;;;;;;
 
 ;1.2.2
@@ -67,9 +71,10 @@
       b
       (fib-iter (+ a b) a (- count 1))))
 
-; define fib-iter which takes two arguments and counts
-; if the count is equal to zero, return b
-; if not, run fib iter with the arguments of (adding a & b), then a, then subtracting one from the count
+; define fib of n by calling fib-iter
+; define fib-iter of a b plus a count
+; if count is zero, return b
+; else fib iter (a + b) a and subtract 1 from the total count
 
 ;;;;;;;;;;;;;;;;;;;;;;;
 
