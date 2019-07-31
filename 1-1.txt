@@ -128,28 +128,35 @@ circumference
 
 ;1.1.7
 
+(define (square x) (* x x))
+(define (average x y)
+  (/ (+ x y) 2))
+
+(define (sqrt x)
+  (sqrt-iter 1.0 x))
 (define (sqrt-iter guess x)
   (if (good-enough? guess x)
       guess
       (sqrt-iter (improve guess x)
                  x)))
-
 (define (improve guess x)
   (average guess (/ x guess)))
-
-(define (average x y)
-  (/ (+ x y) 2))
-
 (define (good-enough? guess x)
   (< (abs (- (square guess) x)) 0.001))
 
-(define (square x) (* x x))
-
-(define (sqrt x)
-  (sqrt-iter 1.0 x))
+; square x is equal to x times itself
+; average x y is equal to x + y / 2
+; sqrt calls sqrt-iter
+; sqrt-iter says guess variable x
+; if that's good enough, guess x and return guess
+; if not, call sqrt-iter again and improve the guess of x, then return x, repeating as necessary to refine
+; improve takes guess and x as variables, then returns the average guess by dividing x by the guess
+; good enough takes guess and x and returns if the result is greater than the absolute value of the square guess minus x within a value of 0.001
 
 (sqrt 9)
+
 (sqrt (+ 100 37))
+
 (sqrt (+ (sqrt 2) (sqrt 3)))
+
 (square (sqrt 1000))
-(square (sqrt (+ (+ 9 4) (- 254 11))))
