@@ -21,8 +21,19 @@
       (+ (term a)
          (sum term (next a) next b))))
 
+;;;
+
 (define (inc n) (+ n 1))
 (define (sum-cubes a b)
   (sum-cube a inc b))
 
 (sum-cubes 1 10)
+
+;;;
+
+(define (identity x) x)
+
+(define (sum-integers a b)
+  (sum identity a inc bb))
+
+(sum-integers 1 10)
