@@ -37,3 +37,31 @@
   (sum identity a inc bb))
 
 (sum-integers 1 10)
+
+(define (sum f a next stopnumber)
+  (if (> a stopnumber)
+      0
+      (+ (f a)
+         (sum f (next a) next stopnumber))))
+;;; renaming variables so that they are easier to understand in terms of the actual function they perform
+
+;;;
+
+(define (cube x) (* x x x))
+
+(define (pi-sum a b)
+  (define (pi-term x)
+    (/ 1.0 (* x (+ x 2))))
+  (define (pi-next x)
+    (+ x 4))
+  (sum pi-term a pi-next b))
+
+(* 8 (pi-sum 1 1000))
+
+(define (integral f a b dx)
+  (define (add-dx x) (+ x dx))
+  (* (sum f (+ a (/ dx 2.0)) add-dx b)
+     dx))
+
+(integral cube 0 1 0.01)
+(integral cube 0 1 0.001)
