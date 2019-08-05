@@ -38,3 +38,24 @@
     (if (> a b) result
         (iter (next a) (* (f a) result))))
   (iter a 1))
+
+; 1.32
+
+;recursive process
+(define (accumulate combiner null-value term a next stopnumber)
+  (if (> a stopnumber) null-value
+      (combiner (term a) (accumulate combiner null-value term (next a) next stopnumber))))
+
+; iterative process
+(define (accumulate combiner null-value term a next stopnumber)
+  (define (iter a result)
+    (if (> a stopnumber) result
+        (iter (next a) (combiner result (term a)))))
+  (iter a null-value))
+
+; defining sum and product as calls to accumulate
+(define (sum term a next stopnumber)
+  (accumulate + 0 term a next stopnumber))
+
+(define (product term a next stopnumber)
+  (accumulate * 1 term a next stopnumber))
