@@ -65,3 +65,16 @@
 
 (integral cube 0 1 0.01)
 (integral cube 0 1 0.001)
+
+; 1.3.2
+
+(lambda (x) (+ x 4))
+
+(lambda (x) (/ 1.0 (* x (+ x 2))))
+
+(define (pi-sum a b)
+  (sum (lambda (x) (/ 1.0 (* x (+ x 2))))
+       a
+       (lambda (x) (+ x 4))
+       b))
+
