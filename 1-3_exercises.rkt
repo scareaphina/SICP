@@ -59,3 +59,18 @@
 
 (define (product term a next stopnumber)
   (accumulate * 1 term a next stopnumber))
+
+; 1.34
+
+(define (square x) (* x x))
+
+(define (f g)
+  (g 2))
+
+(f square)
+
+(f (lambda (z) (* z (+ z 1))))
+
+(f f)
+
+; cannot return f of itself
