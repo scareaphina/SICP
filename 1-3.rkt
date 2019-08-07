@@ -78,3 +78,21 @@
        (lambda (x) (+ x 4))
        b))
 
+(define (integral f a b dx)
+  (* (sum f
+          (+ a (/ dx 2.0))
+          (lambda (x) (+ x dx))
+          b)
+     dx))
+
+; (lambda (<formal-parameters>) <body>)
+
+;(define (plus4 x) (+ x 4))
+
+(define plus4 (lambda (x) (+ x 4)))
+
+; the procedure of an argument x that adds x to 4
+
+((lambda (x y z) (+ x y (square z))) 1 2 3)
+
+; 12
