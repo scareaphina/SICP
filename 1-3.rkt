@@ -144,3 +144,19 @@
 ;    <body>)
 ; <exp1>
 ; <expn>)
+
+(define x 5)
+
+(+ (let ((x 3))
+     (+ x (* x 10)))
+   x)
+
+; 38
+
+(define x 2)
+
+(let ((x 3)
+      (y (+ x 2)))
+  (* x y))
+  
+; 12
