@@ -96,3 +96,51 @@
 ((lambda (x y z) (+ x y (square z))) 1 2 3)
 
 ; 12
+
+; using let to create local variables
+
+(define (f x y)
+  (define (f-helper a b)
+    (+ (* x (square a))
+       (* y b)
+       (* a b)))
+  (f-helper (+ 1 (* x y))
+            (- 1 y)))
+
+(define (f x y)
+  ((lambda (a b)
+     (+ (* x (square a))
+        (* y b)
+        (* a b)))
+   (+ 1 (* x y))
+   (- 1 y)))
+
+; The general form of a let expression is
+
+;(let ((<var1> <exp1>)
+;      (<var2> <exp2>)
+      
+;      (<varn> <expn>))
+;   <body>)
+
+
+; let	<var1> have the value <exp1> and
+;       <var2> have the value <exp2> and
+;       <varn> have the value <expn>
+; in <body>
+
+; using let to write the f procedure
+
+(define (f x y)
+  (let ((a (+ 1 (* x y)))
+        (b (- 1 y)))
+    (+ (* x (square a))
+       (* y b)
+       (* a b))))
+
+; when let is evaluated, each name is associated with the value of the corresponding expression. the body of let is evaluated with these names bounda s local variables
+; let is interpreted as an alternate syntax for
+; ((lambda (<var1> ...<varn>)
+;    <body>)
+; <exp1>
+; <expn>)
