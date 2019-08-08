@@ -73,6 +73,26 @@
 (sumsq-largest 5 1 10)
 (sumsq-largest 2 10 1)
 
+; third attempt
+
+(define (square x)
+  (* x x))
+
+(define (sum-of-squares x y)
+  (+ (* x x*) (* y y)))
+
+(define (sum-greater x y z)
+  (cond
+    ((and (> x y) (> y z)) (sum-of-squares x y))
+    ((and (> x z) (> z y)) (sum-of-squares x z))
+    ((and (> z x) (> y x)) (sum-of-squares z y))))
+
+(sum-greater 2 5 9)
+
+(sum-greater 17 82 5)
+
+(sum-greater .75 8 2)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; 1.4.  Observe that our model of evaluation allows for combinations whose operators are compound expressions. Use this observation to describe the behavior of the following procedure:
