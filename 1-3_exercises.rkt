@@ -135,3 +135,22 @@
   (fixed-point-of-transform (lambda (y) (/ x y))
                             average-damp
                             1.0))
+
+; 1.40
+
+(define (cubic a b c)
+  (lambda (x)
+    (+ (cube x)
+       (* a (square x))
+       (* b x)
+       c)))
+
+; 1.41
+
+(define (double x)
+  (lambda (x) (f (f x))))
+
+; 1.42
+
+(define (compose f g)
+  (lambda (x) (f (f g))))
