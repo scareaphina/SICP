@@ -33,3 +33,45 @@
 (define (equal-rat? x y)
   (= (* (numer x) (denom y))
      (* (numer y) (denom x))))
+
+; pairs
+; car returns the first element of a pair, cdr returns the second
+
+(define x (cons 1 2))
+
+(car x)
+
+(cdr x)
+
+(define y (cons 3 4))
+
+(define z (cons x y))
+
+(car (car z))
+
+(car (cdr z))
+
+; representing rational numbers
+
+(define (make-rat n d) (cons n d))
+(define (numer x) (car x))
+(define (denom x) (cdr x))
+
+(define (print-rat x)
+  (newline)
+  (display (numer x))
+  (display "/")
+  (display (denom x)))
+
+(define one-half (make-rat 1 2))
+
+(print-rat one-half)
+
+(define one-third (make-rat 1 3))
+(print-rat (add-rat one-half one-third))
+
+(print-rat (add-rat one-half one-third))
+
+(print-rat (mult-rat one-half one-third))
+
+(print-rat (add-rat one-third one-third))
