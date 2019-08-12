@@ -125,3 +125,13 @@
 (define (sqrt x)
   (newtons-method (lambda (y) (- (square y) x))
                   1.0))
+
+; abstractions and first-class procedures
+
+(define (fixed-point-of-transform g transform guess)
+  (fixed-point (transform g) guess))
+
+(define (sqrt x)
+  (fixed-point-of-transform (lambda (y) (/ x y))
+                            average-damp
+                            1.0))
