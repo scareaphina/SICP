@@ -154,3 +154,16 @@
 
 (define (compose f g)
   (lambda (x) (f (f g))))
+
+; 1.43
+
+(define (square x)
+  (* x x))
+
+(define (compose f g)
+  (lambda (x) (f (g x))))
+
+(define (repeat f n)
+  (if (< n 1)
+      (lambda (x) x)
+      (compose f (repeat f (- n 1)))))
