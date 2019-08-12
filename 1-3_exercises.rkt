@@ -76,6 +76,7 @@
 ; cannot return f of itself
 
 ; 1.3.4
+; taking a procedure and returning a procedure as an argument 
 
 (define tolerance 0.00001)
 (define (fixed-point f first-guess)
