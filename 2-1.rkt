@@ -75,3 +75,5 @@
 (print-rat (mult-rat one-half one-third))
 
 (print-rat (add-rat one-third one-third))
+
+; 2.1.2 abstraction barriers
