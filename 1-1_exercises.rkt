@@ -79,7 +79,7 @@
   (* x x))
 
 (define (sum-of-squares x y)
-  (+ (* x x*) (* y y)))
+  (+ (* x x) (* y y)))
 
 (define (sum-greater x y z)
   (cond
