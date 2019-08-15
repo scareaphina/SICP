@@ -150,21 +150,33 @@ circumference
 
 ;1.1.7
 
-(define (square x) (* x x))
+; The contrast between function and procedure is a reflection of the general distinction between describing properties of things and describing how to do things, or, as it is sometimes referred to, the distinction between declarative knowledge and imperative knowledge.
+
+(define (square x)
+  (* x x))
+
 (define (average x y)
   (/ (+ x y) 2))
 
-(define (sqrt x)
-  (sqrt-iter 1.0 x))
+(define (improve guess x)
+  (average guess (/ x guess)))
+
+(define (good-enough? guess x)
+  (< (abs (- (square guess) x)) 0.001))
+
 (define (sqrt-iter guess x)
   (if (good-enough? guess x)
       guess
       (sqrt-iter (improve guess x)
                  x)))
-(define (improve guess x)
-  (average guess (/ x guess)))
-(define (good-enough? guess x)
-  (< (abs (- (square guess) x)) 0.001))
+
+(define (sqrt x)
+  (sqrt-iter 1.0 x))
+
+(sqrt 9)
+(sqrt (+ 100 37))
+(sqrt (+ (sqrt 2) (sqrt 3)))
+(square (sqrt 1000))
 
 ; square x is equal to x times itself
 ; average x y is equal to x + y / 2
