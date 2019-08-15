@@ -98,14 +98,24 @@ circumference
 
 ; last line could also read (else (< x 0) (- x)))) 
 
-(define (abs x)
-  (cond ((< x 0) (- x))
-        (else x)))
+(abs 3)
 
 (define (abs x)
   (if (< x 0)
       (- x)
       x))
+
+; another way of defining this with if
+; general form of if: (if <predicate> <consequent> <alternative>)
+
+; (and <e1> ... <en>)
+; evaluates the expressions <e> one at a time, in left-to-right order. If any evaluate to false, the value of the and expression is false, and the rest of the <e>'s are not evaluated. If all <e>'s evaluate to true values, the value of the and expression is the value of the last one.
+
+; (or <e1> ... <en>)
+; evaluates the expressions <e> one at a time, in left-to-right order. If any <e> evaluates to a true value, that value is returned as the value of the or expression, and the rest of the <e>'s are not evaluated. If all <e>'s evaluate to false, the value of the or expression is false.
+
+; (not <e>)
+; The value of a not expression is true when the expression <e> evaluates to false, and false otherwise.
 
 10
 (+ 5 3 4)
