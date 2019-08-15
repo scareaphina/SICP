@@ -45,6 +45,8 @@ circumference
 
 ;1.1.4
 
+; (define (<name> <formal parameters>) <body>)
+
 (define (square x) (* x x))
 
 (square 21)
