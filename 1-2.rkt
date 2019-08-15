@@ -118,6 +118,8 @@
 
 (count-change 100)
 ; returns 292
+(count-change 5)
+; returns 2
 
 ;;;;;;;;;;;;;;;;;;;;;;;
 
