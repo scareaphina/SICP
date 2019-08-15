@@ -117,6 +117,14 @@ circumference
 ; (not <e>)
 ; The value of a not expression is true when the expression <e> evaluates to false, and false otherwise.
 
+(and (> x 5) (< x 10))
+
+(define (>= x y)
+  (or (> x y) (= x y)))
+
+(define (>= x y)
+  (not (< x y)))
+
 10
 (+ 5 3 4)
 (- 9 1)
