@@ -96,6 +96,8 @@ circumference
         ((= x 0) 0)
         ((< x 0) (- x))))
 
+; last line could also read (else (< x 0) (- x)))) 
+
 (define (abs x)
   (cond ((< x 0) (- x))
         (else x)))
