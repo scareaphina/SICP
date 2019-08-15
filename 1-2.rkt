@@ -8,6 +8,8 @@
 
 ;1.2.1
 
+; This type of process, characterized by a chain of deferred operations, is called a recursive process
+
 (define (factorial n)
   (if (= n 1)
       1
@@ -45,6 +47,8 @@
 ; define fact-iter with variable of product, counter, and max-count
 ; if counter is greater than max-count, return product
 ; otherwise, run fact-iter with a first factor of the product of counter and product, then the sum of counter and 1, followed by max-count
+
+; iterative process: one whose state can be summarized by a fixed number of state variables, together with a fixed rule that describes how the state variables should be updated as the process moves from state to state and an (optional) end test that specifies conditions under which the process should terminate
 
 (define (fib n)
   (cond ((= n 0) 0)
