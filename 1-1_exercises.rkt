@@ -116,6 +116,23 @@
 
 ;; the order in which you do the greater thans matters. it is checking for systematic truths, so a and c greater than b, b and c greater than a, a and b greater than c
 
+; 5th
+
+(define (square x)
+  (* x x))
+
+(define (sum-of-squares x y)
+  (+ (square x) (square y)))
+
+(define (sum-sqlgst a b c)
+  (cond
+    ((and (> a c) (> b c)) (sum-of-squares a b))
+    ((and (> b a) (> c a)) (sum-of-squares b c))
+    ((and (> a b) (> c b)) (sum-of-squares a c))
+    (else '(huh?))))
+
+(sum-sqlgst 2 5 9)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; 1.4.  Observe that our model of evaluation allows for combinations whose operators are compound expressions. Use this observation to describe the behavior of the following procedure:
