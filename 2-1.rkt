@@ -77,4 +77,18 @@
 
 (print-rat (add-rat one-third one-third))
 
+; the result to the last print-rat shows us that the procedure does not reduce rational numbers to lowest terms. we can fix that by changing our make-rat function
+
+(define (make-rat n d)
+  (let ((g (gcd n d)))
+    (cons (/ n g) (/ d g))))
+
+; now, when we run
+
+(print-rat (add-rat one-third one-third))
+
+; we get the result
+
+; 2/3
+
 ; 2.1.2 abstraction barriers
