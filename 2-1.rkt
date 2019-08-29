@@ -52,6 +52,8 @@
 (car (car z))
 (car (cdr z))
 
+; data objects constructed from pairs are called list-structured data
+
 ; representing rational numbers
 
 (define (make-rat n d) (cons n d))
@@ -71,9 +73,7 @@
 (define one-third (make-rat 1 3))
 (print-rat (add-rat one-half one-third))
 
-(print-rat (add-rat one-half one-third))
-
-(print-rat (mult-rat one-half one-third))
+(print-rat (mul-rat one-half one-third))
 
 (print-rat (add-rat one-third one-third))
 
