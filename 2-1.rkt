@@ -43,12 +43,13 @@
 
 (cdr x)
 
-(define y (cons 3 4))
+; cons can be used to form pairs whose elements are pairs
 
+(define x (cons 1 2))
+(define y (cons 3 4))
 (define z (cons x y))
 
 (car (car z))
-
 (car (cdr z))
 
 ; representing rational numbers
