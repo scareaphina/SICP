@@ -102,6 +102,8 @@
   (let ((g (gcd (car x) (cdr x))))
     (/ (cdr x) g)))
 
+; what is meant by data?
+
 (define (cons x y)
   (define (dispach m)
     (cond ((= m 0) x)
