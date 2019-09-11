@@ -112,7 +112,26 @@
 (check-equal? (square-list '(1 2 3 4)) '(1 4 9 16))
 (check-equal? (square-list2 '(1 2 3 4)) '(1 4 9 16))
 
+; heirarchical structures
 
+(cons (list 1 2) (list 3 4))
+
+(define x (cons (list 1 2) (list 3 4)))
+
+(define (count-leaves x)
+  (cond ((null? x) 0)
+        ((not (pair? x)) 1)
+        (else (+ (count-leaves (car x))
+                 (count-leaves (cdr x))))))
+
+(length x)
+(count-leaves x)
+
+(list x x)
+
+(length (list x x))
+
+(count-leaves (list x x))
 
 
 
