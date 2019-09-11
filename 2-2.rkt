@@ -95,9 +95,36 @@
 
 (scale-list (list 1 2 3 4 5) 10)      
 
-      
-      
-      
-      
-      
-      
+; 2.21
+
+(define (square n)
+  (* n n))
+
+(define (square-list items)
+  (if (null? items)
+      items
+      (cons (square (car items))
+            (square-list (cdr items)))))
+
+(define (square-list2 items) 
+  (map (lambda (x) (square x)) items))
+
+(check-equal? (square-list '(1 2 3 4)) '(1 4 9 16))
+(check-equal? (square-list2 '(1 2 3 4)) '(1 4 9 16))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
