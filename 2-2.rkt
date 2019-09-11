@@ -186,7 +186,94 @@
 
 ; the similarities are not evident because of the way that each program implements enumeration and spreads the distinct parts of the signal-flow throughout different parts of the individual programs
 
+; sequence operations
 
+
+(define (fib n)
+  (if (<= n 2)
+      1
+      (+ (fib (- n 1))
+         (fib (- n 2)))))
+
+(define (square n)
+  (* n n))
+
+(map square (list 1 2 3 4 5))
+
+; filtering a sequence to select only those elements that satisfy a given predicate is accomplished by:
+
+(define (filter predicate sequence)
+  (cond ((null? sequence) null)
+        ((predicate (car sequence))
+         (cons (car sequence)
+               (filter predicate (cdr sequence))))
+        (else (filter predicate (cdr sequence)))))
+
+(filter odd? (list 1 2 3 4 5))
+
+; accumulations can be implemented by
+
+(define (accumulate op initial sequence)
+  (if (null? sequence)
+      initial
+      (op (car sequence)
+          (accumulate op initial (cdr sequence)))))
+
+(accumulate + 0 (list 1 2 3 4 5))
+(accumulate * 1 (list 1 2 3 4 5))
+(accumulate cons null (list 1 2 3 4 5))
+
+(define (enumerate-interval low high)
+  (if (> low high)
+      null
+      (cons low (enumerate-interval (+ low 1) high))))
+
+(trace enumerate-interval)
+
+(enumerate-interval 2 7)
+
+(define (enumerate-tree tree)
+  (cond ((null? tree) null)
+        ((not (pair? tree)) (list tree))
+        (else (append (enumerate-tree (car tree))
+                      (enumerate-tree (cdr tree))))))
+
+(define (sum-odd-squares tree)
+  (accumulate +
+              0
+              (map square
+                   (filter odd?
+                           (enumerate-tree tree)))))
+
+(define (even-fibs n)
+  (accumulate cons
+              null
+              (filter even?
+                      (map fib
+                           (enumerate-interval 0 n)))))
+
+(define (list-fib-squares n)
+  (accumulate cons
+              null
+              (map square
+                   (map fib
+                        (enumerate-interval 0 n)))))
+
+(list-fib-squares 10)
+
+(define (product-of-squares-of-odd-elements sequence)
+  (accumulate *
+              1
+              (map square
+                   (filter odd? sequence))))
+
+(product-of-squares-of-odd-elements (list 1 2 3 4 5))
+
+(define (salary-of-highest-paid-programmer records)
+  (accumulate max
+              0
+              (map salary
+                   (filter programmer? records))))
 
 
 
