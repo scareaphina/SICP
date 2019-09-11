@@ -151,7 +151,40 @@
              (* sub-tree factor)))
        tree))
 
+; sequences as conventional interfaces
 
+(define (square n)
+  (* n n))
+
+(define (sum-odd-squares tree)
+  (cond ((null? tree) 0)
+        ((not (pair? tree))
+         (if (odd? tree) (square tree) 0))
+        (else (+ (sum-odd-squares (car tree))
+                 (sum-odd-squares (cdr tree))))))
+
+(define (fib n)
+  (cond ((= n 0) 0)
+        ((= n 1) 1)
+        (else (+ (fib (- n 1))
+                 (fib (- n 2))))))
+
+(define (even-fibs n)
+  (define (next k)
+    (if (> k n)
+        null
+        (let ((f (fib k)))
+          (if (even? f)
+              (cons f (next (+ k 1)))
+              (next (+ k 1))))))
+  (next 0))
+
+; programs look different but are actually very similar
+
+; enumerate: tree leaves --> filter: odd? --> map: square --> accumulate: +, 0
+; enumerate: integers --> map: fib --> filter: even? --> accumulate: cons, ()
+
+; the similarities are not evident because of the way that each program implements enumeration and spreads the distinct parts of the signal-flow throughout different parts of the individual programs
 
 
 
