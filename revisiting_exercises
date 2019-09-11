@@ -5,3 +5,22 @@
 ; (check-equal? (function variable(s)) desired result)
 
 ; just for practice
+
+; 1.3
+
+(define (square n)
+  (* n n))
+
+(define (sum-of-squares a b)
+  (+ (square a) (square b)))
+
+(define (sumsqlgst a b c)
+  (cond ((and (>= a b) (>= b c)) (sum-of-squares a b))
+        ((and (>= b a) (>= c a)) (sum-of-squares b c))
+        ((and (>= a b) (>= c b)) (sum-of-squares a c))
+        (else '(huh?))))
+
+(trace sumsqlgst)
+
+(sumsqlgst 1 2 3)
+(sumsqlgst 2 3 4)
